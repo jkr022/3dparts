@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $_SESSION['vare'] = $_POST['vare'] ?? 'Ukjent vare';
+  $_SESSION['vare'] = $_SESSION['vare'] ?? $_POST['vare'] ?? 'Ukjent vare';
 }
 ?>
 
