@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
   <h2>Betal med kort</h2>
-  <p>Du betaler for: <?php session_start(); echo $_SESSION['vare'] ?? 'Ukjent'; ?></p>
+  <p>Du betaler for: <?php echo $_SESSION['vare'] ?? 'Ukjent'; ?></p>
   <form method="post" action="bankid.php">
     <input type="text" name="kortnr" placeholder="Kortnummer"><br>
     <input type="text" name="utlopsdato" placeholder="MM/YY"><br>
